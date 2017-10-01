@@ -5,6 +5,7 @@ import { FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2/d
 import { AddTechPage } from '../add-tech/add-tech';
 import 'rxjs/add/operator/map';
 import { TechnologyProvider } from '../../providers/technology/technology';
+import { Observable } from 'rxjs/Observable';
 
 @IonicPage()
 @Component({
@@ -12,21 +13,26 @@ import { TechnologyProvider } from '../../providers/technology/technology';
   templateUrl: 'technology.html',
 })
 export class TechnologyPage {
-  items;
+  items: Observable<any[]>;
   fullList = [];
   technologies:FirebaseListObservable<any[]>;
   item: FirebaseObjectObservable<any>;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public tp: TechnologyProvider,  public modalCtrl: ModalController) {
-    this.items = tp.getTechnologies();
+    this.initializeList();
+  }
+
+  initializeList() {
+    this.items = this.tp.getTechnologies();
   }
 
   getItems(ev) {
+    this.initializeList();
     var val = ev.target.value;
 
     if (val && val.trim() != '') {
-      this.items = this.items.filter((item) => {
-        return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      this.items = this.items.map(items => {
+        return items.filter(item => item.text.toLowerCase().indexOf(val.toLowerCase()) > -1);
       });
     }
   }

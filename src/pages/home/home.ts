@@ -11,10 +11,4 @@ export class HomePage {
   constructor(public navCtrl: NavController, public popoverCtrl: PopoverController) {
     
   }
-
-  presentPopover() {
-    //let popover = this.popoverCtrl.create(MyPopOverPage);
-    //popover.present();
-  }
-
 }

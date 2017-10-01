@@ -1,12 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { IonicPage, ViewController } from 'ionic-angular';
 import { TechnologyProvider } from '../../providers/technology/technology';
-
-import {
-  FormGroup,
-  FormControl,
-  Validators
-} from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @IonicPage()
 @Component({
