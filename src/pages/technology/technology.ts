@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the TechnologyPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, ModalController, NavController, NavParams } from 'ionic-angular';
+import { Http } from '@angular/http';
+import { FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2/database';
+import { AddTechPage } from '../add-tech/add-tech';
+import 'rxjs/add/operator/map';
+import { TechnologyProvider } from '../../providers/technology/technology';
 
 @IonicPage()
 @Component({
@@ -15,65 +13,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TechnologyPage {
   items;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.initializeItems();
-  }
-
-  initializeItems() {
-    this.items = [
-      'Azure',
-      'C',
-      'C++',
-      'C#',
-      '.NET',
-      'ASP.NET',
-      'MVC',
-      'Elastic',
-      'Containers',
-      'Docker',
-      'Cloud Development',
-      'Visual Studio',
-      'Android',
-      'Ionic',
-      'Nginx',
-      'SQL',
-      'NoSql',
-      'IoT',
-      'RabbitMq',
-      'Microservices',
-      'Installshield',
-      'Batch',
-      'Bash',
-      'Shell',
-      'Powershell',
-      'Octopus',
-      'Bamboo',
-      'Git',
-      'VSS',
-      'Clearcase',
-      'SVN',
-      'HTML',
-      'JavaScript',
-      'CSS',
-      'Angular',
-      'Knockout',
-      'Polymer'
-    ];
+  fullList = [];
+  technologies:FirebaseListObservable<any[]>;
+  item: FirebaseObjectObservable<any>;
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public tp: TechnologyProvider,  public modalCtrl: ModalController) {
+    this.items = tp.getTechnologies();
   }
 
   getItems(ev) {
-    // Reset items back to all of the items
-    this.initializeItems();
-
-    // set val to the value of the ev target
     var val = ev.target.value;
 
-    // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
       this.items = this.items.filter((item) => {
         return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
-      })
+      });
     }
   }
 
@@ -81,4 +35,8 @@ export class TechnologyPage {
     console.log('ionViewDidLoad TechnologyPage');
   }
 
+  addTech() {
+    let modal = this.modalCtrl.create(AddTechPage);
+    modal.present();
+  }
 }

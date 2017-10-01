@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Add Technology
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" color="light" hideWhen="ios"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <form (submit)="add()" [formGroup]="form">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Technology</ion-label>
+        <ion-input type="text" formControlName="tech"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Level</ion-label>
+        <ion-input type="text" formControlName="level"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <button ion-button item-end icon-end type="submit">
+            <ion-icon name="add"></ion-icon>
+              <span class="add-btn-text">Add</span>
+          </button>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>
