@@ -6,6 +6,7 @@ import { AddTechPage } from '../add-tech/add-tech';
 import 'rxjs/add/operator/map';
 import { TechnologyProvider } from '../../providers/technology/technology';
 import { Observable } from 'rxjs/Observable';
+import { AuthProvider } from "../../providers/auth/auth";
 
 @IonicPage()
 @Component({
@@ -18,7 +19,8 @@ export class TechnologyPage {
   technologies:FirebaseListObservable<any[]>;
   item: FirebaseObjectObservable<any>;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public tp: TechnologyProvider,  public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public tp: TechnologyProvider,  
+    public modalCtrl: ModalController, private authSvc: AuthProvider) {
     this.initializeList();
   }
 
@@ -44,5 +46,9 @@ export class TechnologyPage {
   addTech() {
     let modal = this.modalCtrl.create(AddTechPage);
     modal.present();
+  }
+
+  canShowAddTech() {
+    return this.authSvc.isAuthenticated;
   }
 }

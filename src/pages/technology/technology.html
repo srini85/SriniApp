@@ -23,7 +23,7 @@
     </ion-item>
   </ion-list>
 
-  <ion-fab bottom right #fabMain (click)="addTech()">
+  <ion-fab *ngIf="canShowAddTech()" bottom right #fabMain (click)="addTech()">
     <button ion-fab mini><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 </ion-content>

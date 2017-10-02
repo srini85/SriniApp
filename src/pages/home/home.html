@@ -8,20 +8,24 @@
 </ion-header>
 
 <ion-content padding>
-<ion-card>
-  <ion-card-header>
-    Who am I?
-  </ion-card-header>
-  <ion-card-content>
-    Software enthusiast who just loves to write code. I was born in 1985 in India, but moved down under to wonderful Sydney, Australia at a young age. 
-    I work as a Software Engineer at the Honeywell Software Centre in Sydney.
-  </ion-card-content>
-</ion-card>
-<ion-card>
-  <ion-card-header>
-    Family
-  </ion-card-header>
-  <ion-card-content>
-    Married to Aarthi since 2010 and now with two lovely children - Janaki and Varadhan.  
-  </ion-card-content>
-</ion-card>
+  <ion-card>
+    <ion-card-header>
+      Who am I?
+    </ion-card-header>
+    <ion-card-content>
+      Software enthusiast who just loves to write code. I was born in 1985 in India, but moved down under to wonderful Sydney, Australia at a young age. 
+      I work as a Software Engineer at the Honeywell Software Centre in Sydney.
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Family
+    </ion-card-header>
+    <ion-card-content>
+      Married to Aarthi since 2010 and now with two lovely children - Janaki and Varadhan.  
+    </ion-card-content>
+  </ion-card>
+  <p>Hello: {{ displayName }}</p>
+  <button ion-button outline (click)="signIn()">Login</button>  
+  <button ion-button outline (click)="signOut()">Logout</button>
+</ion-content>
