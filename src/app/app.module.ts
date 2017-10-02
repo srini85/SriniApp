@@ -22,13 +22,16 @@ import { AuthProvider } from '../providers/auth/auth';
 
 import { Facebook } from '@ionic-native/facebook';
 
+import { SigninComponent } from '../components/signin/signin';
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ContactPage,
     TechnologyPage,
-    AddTechPage
+    AddTechPage,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { Facebook } from '@ionic-native/facebook';
     HomePage,
     ContactPage,
     TechnologyPage,
-    AddTechPage
+    AddTechPage,
+    SigninComponent
   ],
   providers: [
     StatusBar,

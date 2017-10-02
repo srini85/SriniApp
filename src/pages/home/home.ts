@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
+import { SigninComponent } from '../../components/signin/signin';
 
 @Component({
   selector: 'page-home',
@@ -19,12 +20,5 @@ export class HomePage {
 
       this.displayName = user.displayName;
     });
-  }
-
-  signIn() {
-    this.authSvc.signInWithFacebook();
-  }
-  signOut() {
-    this.authSvc.signOut();
   }
 }
