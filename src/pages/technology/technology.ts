@@ -49,6 +49,6 @@ export class TechnologyPage {
   }
 
   canShowAddTech() {
-    return this.authSvc.isAuthenticated;
+    return this.authSvc.isAdmin;
   }
 }
