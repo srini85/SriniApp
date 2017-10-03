@@ -11,11 +11,9 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class AddTechPage {
   form;
   @Input() tech;
-  @Input() level;
   constructor(public viewCtrl: ViewController, public tp: TechnologyProvider) {
     this.form = new FormGroup({
-      tech: new FormControl(""),
-      level: new FormControl("")
+      tech: new FormControl("")
     });
   }
 
@@ -29,5 +27,6 @@ export class AddTechPage {
 
   add() {
     this.tp.addTechnology(this.form.value.tech);
+    this.dismiss();
   }
 }
