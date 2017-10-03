@@ -21,6 +21,7 @@ import { TechnologyProvider } from '../providers/technology/technology';
 import { AuthProvider } from '../providers/auth/auth';
 
 import { Facebook } from '@ionic-native/facebook';
+import { GooglePlus } from '@ionic-native/google-plus';
 
 import { SigninComponent } from '../components/signin/signin';
 
@@ -56,7 +57,8 @@ import { SigninComponent } from '../components/signin/signin';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     TechnologyProvider,
     AuthProvider,
-    Facebook
+    Facebook,
+    GooglePlus
   ]
 })
 export class AppModule {}

@@ -21,8 +21,8 @@ export class SigninComponent {
     this.signout();
   }
 
-  private signin() {
-    this.authSvc.signInWithFacebook();
+  private signin() {    
+    this.authSvc.signInWithGoogle();
   }
 
   private signout() {
@@ -37,7 +37,7 @@ export class SigninComponent {
         this.toastMessage('Not signed in. Use the menu to sign in.');
         return;
       }
-        this.toastMessage('Signed in as ' + user.displayName);
+        this.toastMessage('Welcome ' + user.displayName);
         this.nextLoginAction = "out";
         this.displayName = this.processDisplayName(user.displayName);
     });
