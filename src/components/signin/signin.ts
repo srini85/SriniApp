@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthProvider } from '../../providers/auth/auth';
 import { ToastController } from 'ionic-angular';
+
 @Component({
   selector: 'signin',
   templateUrl: 'signin.html'

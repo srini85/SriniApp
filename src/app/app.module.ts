@@ -8,6 +8,8 @@ import { HomePage } from '../pages/home/home';
 import { ContactPage } from '../pages/contact/contact';
 import { TechnologyPage } from '../pages/technology/technology';
 import { AddTechPage } from '../pages/add-tech/add-tech';
+import { CommentsPage } from '../pages/comments/comments';
+import { AddCommentPage } from '../pages/add-comment/add-comment';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -24,6 +26,8 @@ import { Facebook } from '@ionic-native/facebook';
 import { GooglePlus } from '@ionic-native/google-plus';
 
 import { SigninComponent } from '../components/signin/signin';
+import { Ionic2RatingModule } from 'ionic2-rating';
+import { CommentsProvider } from '../providers/comments/comments';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,8 @@ import { SigninComponent } from '../components/signin/signin';
     ContactPage,
     TechnologyPage,
     AddTechPage,
+    CommentsPage,
+    AddCommentPage,
     SigninComponent
   ],
   imports: [
@@ -40,7 +46,8 @@ import { SigninComponent } from '../components/signin/signin';
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    Ionic2RatingModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -49,6 +56,8 @@ import { SigninComponent } from '../components/signin/signin';
     ContactPage,
     TechnologyPage,
     AddTechPage,
+    CommentsPage,
+    AddCommentPage,
     SigninComponent
   ],
   providers: [
@@ -58,7 +67,8 @@ import { SigninComponent } from '../components/signin/signin';
     TechnologyProvider,
     AuthProvider,
     Facebook,
-    GooglePlus
+    GooglePlus,
+    CommentsProvider
   ]
 })
 export class AppModule {}

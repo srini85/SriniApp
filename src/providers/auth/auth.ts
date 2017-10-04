@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 import * as firebase from 'firebase/app';
 
@@ -15,7 +15,7 @@ export class AuthProvider {
   isAuthenticated:Boolean;
   isAdmin:Boolean;
   adminSubscription;
-  userProfile: any = null;
+  userProfile: firebase.User = null;
   
   constructor(public http: Http, private afAuth: AngularFireAuth,  private fb: Facebook, private gp: GooglePlus, private platform: Platform, private db: AngularFireDatabase) {
     

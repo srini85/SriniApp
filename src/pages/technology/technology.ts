@@ -19,8 +19,8 @@ export class TechnologyPage {
   technologies:FirebaseListObservable<any[]>;
   item: FirebaseObjectObservable<any>;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public tp: TechnologyProvider,  
-    public modalCtrl: ModalController, private authSvc: AuthProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, private tp: TechnologyProvider,  
+    private modalCtrl: ModalController, private authSvc: AuthProvider) {
     this.initializeList();
   }
 
