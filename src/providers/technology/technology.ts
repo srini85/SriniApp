@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireOfflineDatabase, AfoListObservable, AfoObjectObservable } from 'angularfire2-offline';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class TechnologyProvider {
-  technologies:FirebaseListObservable<any[]>;
-  item: FirebaseObjectObservable<any>;
-  constructor(public http: Http,  public db: AngularFireDatabase) {
+  technologies:AfoListObservable<any[]>;
+  item: AfoObjectObservable<any>;
+  constructor(public http: Http,  public db: AngularFireOfflineDatabase) {
     
   }
 
@@ -18,7 +18,7 @@ export class TechnologyProvider {
     this.technologies.push(techObj);
   }
 
-  getTechnologies(): FirebaseListObservable<any[]> {
+  getTechnologies(): AfoListObservable<any[]> {
     this.technologies = this.db.list('technologies', {
       query: {
         orderByChild: 'text'

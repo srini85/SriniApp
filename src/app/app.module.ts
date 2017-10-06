@@ -19,6 +19,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 
+import { AngularFireOfflineModule } from 'angularfire2-offline';
+
 import { TechnologyProvider } from '../providers/technology/technology';
 import { AuthProvider } from '../providers/auth/auth';
 
@@ -45,6 +47,7 @@ import { CommentsProvider } from '../providers/comments/comments';
     HttpModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireOfflineModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     Ionic2RatingModule
