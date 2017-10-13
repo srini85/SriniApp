@@ -10,6 +10,7 @@ import { TechnologyPage } from '../pages/technology/technology';
 import { AddTechPage } from '../pages/add-tech/add-tech';
 import { CommentsPage } from '../pages/comments/comments';
 import { AddCommentPage } from '../pages/add-comment/add-comment';
+import { MapPage } from '../pages/map/map';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -27,6 +28,8 @@ import { AuthProvider } from '../providers/auth/auth';
 import { Facebook } from '@ionic-native/facebook';
 import { GooglePlus } from '@ionic-native/google-plus';
 
+import { GoogleMaps } from '@ionic-native/google-maps';
+
 import { SigninComponent } from '../components/signin/signin';
 import { Ionic2RatingModule } from 'ionic2-rating';
 import { CommentsProvider } from '../providers/comments/comments';
@@ -40,6 +43,7 @@ import { CommentsProvider } from '../providers/comments/comments';
     AddTechPage,
     CommentsPage,
     AddCommentPage,
+    MapPage,
     SigninComponent
   ],
   imports: [
@@ -61,9 +65,11 @@ import { CommentsProvider } from '../providers/comments/comments';
     AddTechPage,
     CommentsPage,
     AddCommentPage,
+    MapPage,
     SigninComponent
   ],
   providers: [
+    GoogleMaps,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
@@ -72,6 +78,7 @@ import { CommentsProvider } from '../providers/comments/comments';
     Facebook,
     GooglePlus,
     CommentsProvider
+    
   ]
 })
 export class AppModule {}

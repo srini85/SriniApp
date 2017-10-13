@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Leave Srini a comment</ion-title>
+    <ion-buttons start>
+        <button ion-button (click)="dismiss()">
+          <span ion-text showWhen="ios">Cancel</span>
+          <ion-icon name="md-close" color="light" hideWhen="ios"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="center">
+  <form (submit)="addComment()" [formGroup]="form">
+    <h4>What would you give the app?</h4>  
+    <rating [(ngModel)]="rate" 
+      readOnly="false"
+      max="5"
+      emptyStarIconName="star-outline"
+      halfStarIconName="star-half"
+      starIconName="star"
+      nullable="false"
+      formControlName="userRating">
+    </rating>
+    <h4>Name that will be displayed on the comment</h4>
+    <div>{{ userName }}</div>
+    
+    <ion-item>
+      <ion-label color="primary" stacked>Your comment</ion-label>
+      <ion-textarea rows="3" id="messageInputBox" placeholder="E.g. Great App!" required maxLength="120" formControlName="userComment"></ion-textarea>
+    </ion-item>
+    <button ion-button item-end icon-end type="submit">
+        <span class="add-btn-text">Submit</span>
+    </button>
+  </form>
+</ion-content>

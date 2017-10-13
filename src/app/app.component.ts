@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ContactPage } from '../pages/contact/contact';
 import { TechnologyPage } from '../pages/technology/technology';
 import { CommentsPage } from '../pages/comments/comments';
+import { MapPage } from '../pages/map/map';
 
 @Component({
   templateUrl: 'app.html'
@@ -26,15 +27,14 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'Connect', component: ContactPage },
       { title: 'Technology', component: TechnologyPage },
-      { title: 'Comments', component: CommentsPage }
+      { title: 'Comments', component: CommentsPage },
+      { title: 'Locate', component: MapPage },
     ];
 
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
